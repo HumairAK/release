@@ -28,7 +28,10 @@ tests:
     - as: integration-test-odh-dspo
       cli: latest
       commands: |
-        echo "Add tests"
+        export GIT_WORKSPACE=.github/scripts/tests
+        export DSPA_PATH=tests/resources/dspa-lite-tls.yaml
+        cd ${GIT_WORKSPACE}
+        sh tests.sh --standard
       from: src
       resources:
         requests:
